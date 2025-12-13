@@ -10,7 +10,7 @@ const PremiumNavbar = () => {
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
-  const navItems = [,'About','Courses', 'Hackathons',  'Contact'];
+  const navItems = [, 'About', 'Courses', 'Hackathons', 'Contact'];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,18 +34,17 @@ const PremiumNavbar = () => {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-500 ease-out ${
-          isScrolled
+        className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-500 ease-out ${isScrolled
             ? 'bg-black/60 backdrop-blur-2xl border-b border-white/5 shadow-[0_8px_32px_rgba(255,255,255,0.05)]'
             : 'bg-transparent'
-        } ${showNavbar ? 'translate-y-0' : '-translate-y-full'}`}
+          } ${showNavbar ? 'translate-y-0' : '-translate-y-full'}`}
       >
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           <div className="flex items-center justify-between h-20">
             <div className="flex items-center space-x-3 group cursor-pointer">
               <div className="relative">
                 <div className="absolute -inset-2 bg-white/20 rounded-xl opacity-0 group-hover:opacity-30 blur-xl transition-all duration-700"></div>
-               <img src={Logo} alt="Logo" className="w-auto h-10 rounded-full" />
+                <img src={Logo} alt="Logo" className="w-auto h-10 rounded-full" />
               </div>
               <span className="text-2xl font-bold bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent group-hover:from-white group-hover:to-white/90 transition-all duration-500 tracking-tight">
                 SkillSpardha
@@ -66,9 +65,8 @@ const PremiumNavbar = () => {
                   )}
 
                   <span
-                    className={`absolute inset-0 bg-white/10 rounded-lg opacity-0 transition-all duration-500 ${
-                      hoveredItem === item ? 'opacity-100' : ''
-                    }`}
+                    className={`absolute inset-0 bg-white/10 rounded-lg opacity-0 transition-all duration-500 ${hoveredItem === item ? 'opacity-100' : ''
+                      }`}
                   ></span>
 
                   {hoveredItem === item && (
@@ -76,13 +74,12 @@ const PremiumNavbar = () => {
                   )}
 
                   <span
-                    className={`relative z-10 transition-all duration-300 ${
-                      activeItem === item
+                    className={`relative z-10 transition-all duration-300 ${activeItem === item
                         ? 'text-white'
                         : hoveredItem === item
-                        ? 'text-white'
-                        : 'text-white/60'
-                    }`}
+                          ? 'text-white'
+                          : 'text-white/60'
+                      }`}
                   >
                     {item}
                   </span>
@@ -91,23 +88,23 @@ const PremiumNavbar = () => {
             </div>
 
             <div className="hidden lg:flex items-center space-x-3">
-              
+
 
               <button className="btn relative overflow-hidden group isolate">
-  <span className="relative z-10">Sign up</span>
+                <span className="relative z-10">Sign up</span>
 
-  
 
-  {/* Hover glow layer */}
- <div className="absolute inset-0 -z-10
+
+                {/* Hover glow layer */}
+                <div className="absolute inset-0 -z-10
   bg-gradient-to-r from-blue-400/20 to-purple-500/20
   opacity-0 scale-75 
   blur-2xl 
   transition-all duration-500 ease-out
   group-hover:opacity-100 group-hover:scale-100 group-hover:blur-xl">
-</div>
+                </div>
 
-</button>
+              </button>
 
 
             </div>
@@ -122,11 +119,10 @@ const PremiumNavbar = () => {
         </div>
 
         <div
-          className={`lg:hidden transition-all duration-500 ease-out ${
-            isMobileMenuOpen
+          className={`lg:hidden transition-all duration-500 ease-out ${isMobileMenuOpen
               ? 'max-h-[600px] opacity-100'
               : 'max-h-0 opacity-0 overflow-hidden'
-          }`}
+            }`}
         >
           <div className="px-6 py-8 bg-black/90 backdrop-blur-2xl border-t border-white/5">
             <div className="space-y-2">
@@ -137,11 +133,10 @@ const PremiumNavbar = () => {
                     setActiveItem(item);
                     setIsMobileMenuOpen(false);
                   }}
-                  className={`w-full px-5 py-4 text-left text-[15px] font-medium rounded-xl transition-all duration-300 ${
-                    activeItem === item
+                  className={`w-full px-5 py-4 text-left text-[15px] font-medium rounded-xl transition-all duration-300 ${activeItem === item
                       ? 'text-white bg-white/5 border border-white/10'
                       : 'text-white/60 hover:text-white hover:bg-white/5'
-                  }`}
+                    }`}
                 >
                   {item}
                 </button>
@@ -149,22 +144,22 @@ const PremiumNavbar = () => {
             </div>
 
             <div className="mt-8 space-y-3">
-              
 
-             <button className="btn relative overflow-hidden group isolate">
-  <span className="relative z-10">Sign up</span>
 
-  
+              <button className="btn relative overflow-hidden group isolate">
+                <span className="relative z-10">Sign up</span>
 
-  {/* Hover glow layer */}
- <div className="absolute inset-0 -z-10
+
+
+                {/* Hover glow layer */}
+                <div className="absolute inset-0 -z-10
   bg-gradient-to-r from-blue-400/20 to-purple-500/20
   opacity-0 scale-75 
   blur-2xl 
   transition-all duration-500 ease-out
   group-hover:opacity-100 group-hover:scale-100 group-hover:blur-xl">
-</div>
-</button>
+                </div>
+              </button>
 
             </div>
           </div>

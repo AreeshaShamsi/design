@@ -1,319 +1,282 @@
 import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
 
 export default function CoursesSection() {
   const [activeTab, setActiveTab] = useState("All courses");
 
   const tabs = [
     "All courses",
-    "Web Development",
-    "Web Design",
-    "AI & ML",
-    "Data Science"
+    "Business",
+    "Finance",
+    "Development",
+    "Language",
+    "Management",
+    "Web design"
   ];
 
   const allCourses = [
     {
       id: 1,
-      category: "WEB DEVELOPMENT",
-      title: "Full-Stack Web Development Bootcamp",
-      price: "$ 299.00 USD",
-      lessons: 85,
-      image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=80",
-      tag: "Web Development"
+      category: "Finance",
+      title: "Optimize workflow for peak productivity",
+      lessons: 60,
+      price: "175.00",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+      tag: "Finance"
     },
     {
       id: 2,
-      category: "AI & ML",
-      title: "Machine Learning Fundamentals",
-      price: "$ 349.00 USD",
-      lessons: 75,
-      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
-      tag: "AI & ML"
+      category: "Management",
+      title: "Operations strategy & performance improvement",
+      lessons: 35,
+      price: "130.00",
+      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80",
+      tag: "Management"
     },
     {
       id: 3,
-      category: "WEB DESIGN",
-      title: "Modern UI/UX Design & Figma Mastery",
-      price: "$ 189.00 USD",
-      lessons: 45,
+      category: "Design",
+      title: "Modern UI components and frameworks",
+      lessons: 35,
+      price: "189.00",
       image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&q=80",
-      tag: "Web Design"
+      tag: "Web design"
     },
     {
       id: 4,
-      category: "DATA SCIENCE",
-      title: "Python for Data Science & Analytics",
-      price: "$ 249.00 USD",
-      lessons: 70,
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
-      tag: "Data Science"
+      category: "Management",
+      title: "Empower success through effective management",
+      lessons: 39,
+      price: "110.00",
+      image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80",
+      tag: "Management"
     },
     {
       id: 5,
-      category: "WEB DEVELOPMENT",
-      title: "React & Next.js Master Course",
-      price: "$ 220.00 USD",
-      lessons: 50,
-      image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&q=80",
-      tag: "Web Development"
+      category: "Design",
+      title: "Enhance UI, UX, and professional design skills",
+      lessons: 30,
+      price: "180.00",
+      image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80",
+      tag: "Web design"
     },
     {
       id: 6,
-      category: "WEB DEVELOPMENT",
-      title: "Advanced JavaScript & TypeScript",
-      price: "$ 199.00 USD",
-      lessons: 55,
-      image: "https://images.unsplash.com/photo-1579468118864-1b9ea3c0db4a?w=800&q=80",
-      tag: "Web Development"
+      category: "Design",
+      title: "Unleash creativity with modern design tools",
+      lessons: 42,
+      price: "190.00",
+      image: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=800&q=80",
+      tag: "Web design"
     },
     {
       id: 7,
-      category: "WEB DEVELOPMENT",
-      title: "Node.js & Express Backend Mastery",
-      price: "$ 259.00 USD",
-      lessons: 62,
-      image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80",
-      tag: "Web Development"
+      category: "Finance",
+      title: "Unlock wealth strategies through finance education",
+      lessons: 34,
+      price: "97.00",
+      image: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=800&q=80",
+      tag: "Finance"
     },
     {
       id: 8,
-      category: "WEB DEVELOPMENT",
-      title: "MERN Stack Complete Guide",
-      price: "$ 319.00 USD",
-      lessons: 95,
-      image: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=800&q=80",
-      tag: "Web Development"
+      category: "Language",
+      title: "Professional writing and communication mastery",
+      lessons: 32,
+      price: "160.00",
+      image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&q=80",
+      tag: "Language"
     },
     {
       id: 9,
-      category: "WEB DESIGN",
-      title: "Responsive Web Design & CSS Grid",
-      price: "$ 159.00 USD",
-      lessons: 38,
-      image: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=800&q=80",
-      tag: "Web Design"
+      category: "Negotiation",
+      title: "Advanced deal strategies and communication",
+      lessons: 30,
+      price: "170.00",
+      image: "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=800&q=80",
+      tag: "Business"
     },
     {
       id: 10,
-      category: "WEB DESIGN",
-      title: "Advanced CSS & Animation Techniques",
-      price: "$ 169.00 USD",
-      lessons: 42,
-      image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80",
-      tag: "Web Design"
+      category: "Development",
+      title: "Comprehensive web development with MERN",
+      lessons: 36,
+      price: "100.00",
+      image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=80",
+      tag: "Development"
     },
     {
       id: 11,
-      category: "WEB DESIGN",
-      title: "UI Design System & Component Library",
-      price: "$ 199.00 USD",
-      lessons: 48,
-      image: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=800&q=80",
-      tag: "Web Design"
+      category: "Development",
+      title: "Building single page applications with angular",
+      lessons: 25,
+      price: "140.00",
+      image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&q=80",
+      tag: "Development"
     },
     {
       id: 12,
-      category: "AI & ML",
-      title: "Deep Learning & Neural Networks",
-      price: "$ 399.00 USD",
-      lessons: 90,
-      image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&q=80",
-      tag: "AI & ML"
-    },
-    {
-      id: 13,
-      category: "AI & ML",
-      title: "Natural Language Processing with Python",
-      price: "$ 329.00 USD",
-      lessons: 65,
-      image: "https://images.unsplash.com/photo-1655720828018-edd2daec9349?w=800&q=80",
-      tag: "AI & ML"
-    },
-    {
-      id: 14,
-      category: "AI & ML",
-      title: "Computer Vision & Image Recognition",
-      price: "$ 379.00 USD",
-      lessons: 80,
-      image: "https://images.unsplash.com/photo-1535378917042-10a22c95931a?w=800&q=80",
-      tag: "AI & ML"
-    },
-    {
-      id: 15,
-      category: "AI & ML",
-      title: "AI Model Deployment & MLOps",
-      price: "$ 359.00 USD",
-      lessons: 58,
-      image: "https://images.unsplash.com/photo-1676299081847-824916de030a?w=800&q=80",
-      tag: "AI & ML"
-    },
-    {
-      id: 16,
-      category: "DATA SCIENCE",
-      title: "Data Analysis with Pandas & NumPy",
-      price: "$ 229.00 USD",
-      lessons: 52,
-      image: "https://images.unsplash.com/photo-1543286386-713bdd548da4?w=800&q=80",
-      tag: "Data Science"
-    },
-    {
-      id: 17,
-      category: "DATA SCIENCE",
-      title: "Big Data & Apache Spark",
-      price: "$ 289.00 USD",
-      lessons: 68,
-      image: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=800&q=80",
-      tag: "Data Science"
-    },
-    {
-      id: 18,
-      category: "DATA SCIENCE",
-      title: "Data Visualization with Tableau & Power BI",
-      price: "$ 199.00 USD",
-      lessons: 45,
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
-      tag: "Data Science"
+      category: "Language",
+      title: "Content creation and language proficiency",
+      lessons: 29,
+      price: "110.00",
+      image: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=800&q=80",
+      tag: "Language"
     }
   ];
 
   const filteredCourses = activeTab === "All courses" 
-    ? allCourses.slice(0, 5)
+    ? allCourses.slice(0, 9)
     : allCourses.filter(course => course.tag === activeTab);
 
   return (
-    <div className="bg-gradient-to-b from-gray-50 to-white min-h-screen py-20 px-4 md:px-8 lg:px-20">
+    <div className="bg-white min-h-screen py-20 px-6 md:px-12 lg:px-16">
       
       {/* HEADING */}
-      <div className="text-center max-w-4xl mx-auto mb-16">
-        <p className="text-gray-500 uppercase tracking-widest text-sm font-bold mb-4 animate-fade-in">
+      <motion.div 
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="text-center max-w-4xl mx-auto mb-12"
+      >
+        <p className="text-gray-500 uppercase tracking-widest text-[11px] font-semibold mb-3">
           FIND THE COURSE RIGHT FOR YOUR GOAL
         </p>
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-tight animate-fade-in-up">
+        <h2 className="text-4xl md:text-5xl font-bold text-black leading-tight">
           Select the program tailored to your success
-        </h1>
-      </div>
+        </h2>
+      </motion.div>
 
       {/* TABS */}
-      <div className="flex flex-wrap justify-center gap-6 md:gap-10 mb-16 border-b-2 border-gray-200 pb-6 max-w-5xl mx-auto">
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        className="flex flex-wrap justify-center gap-8 mb-16 max-w-5xl mx-auto"
+      >
         {tabs.map((tab) => (
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
-            className={`text-base md:text-lg font-bold pb-3 transition-all relative ${
+            className={`text-sm font-medium relative transition-colors pb-1 ${
               activeTab === tab
-                ? "text-gray-900 scale-105"
-                : "text-gray-400 hover:text-gray-700"
+                ? "text-black"
+                : "text-gray-400 hover:text-gray-600"
             }`}
           >
             {tab}
             {activeTab === tab && (
-              <div className="absolute bottom-0 left-0 right-0 h-1 bg-red-500 rounded-full animate-slide-in" />
+              <motion.div
+                layoutId="activeTab"
+                className="absolute -bottom-2 left-0 right-0 h-[2px] bg-black"
+                transition={{ type: "spring", stiffness: 380, damping: 30 }}
+              />
             )}
           </button>
         ))}
-      </div>
-
-      {/* COURSE COUNT */}
-      <div className="text-center mb-8">
-        <p className="text-gray-600 font-semibold">
-          {activeTab === "All courses" ? "Featured " : ""}Showing {filteredCourses.length} {filteredCourses.length === 1 ? 'course' : 'courses'}
-        </p>
-      </div>
+      </motion.div>
 
       {/* COURSE CARDS */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-        {filteredCourses.map((course, index) => (
-          <div
-            key={course.id}
-            style={{ animationDelay: `${index * 50}ms` }}
-            className="group relative rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 cursor-pointer bg-white hover:-translate-y-2 animate-fade-in-up"
-          >
-            {/* IMAGE BACKGROUND */}
-            <div className="h-96 relative overflow-hidden">
-              <img 
-                src={course.image} 
-                alt={course.title}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-              />
-              
-              {/* GRADIENT OVERLAY */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
-              
-              {/* LESSONS BADGE */}
-              <div className="absolute top-6 right-6 bg-red-500 text-white rounded-full w-24 h-24 flex flex-col items-center justify-center shadow-2xl z-10 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
-                <span className="text-3xl font-black">{course.lessons}</span>
-                <span className="text-sm font-bold">Lessons</span>
+      <AnimatePresence mode="wait">
+        <motion.div 
+          key={activeTab}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto mb-12"
+        >
+          {filteredCourses.map((course, index) => (
+            <motion.div
+              key={course.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: index * 0.05 }}
+              className="group relative bg-white rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-500 cursor-pointer h-[480px]"
+            >
+              {/* FULL BACKGROUND IMAGE */}
+              <div className="absolute inset-0">
+                <img 
+                  src={course.image} 
+                  alt={course.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                {/* Dark overlay that gets darker on hover */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-70 group-hover:opacity-85 transition-opacity duration-500" />
               </div>
 
-              {/* CONTENT */}
-              <div className="absolute bottom-0 left-0 right-0 p-8 text-white z-10">
-                <p className="text-xs font-black tracking-widest uppercase mb-3 text-red-400">
-                  {course.category}
-                </p>
-                <h3 className="text-2xl font-black mb-4 leading-tight group-hover:text-yellow-400 transition-colors">
-                  {course.title}
-                </h3>
-                <p className="text-2xl font-black text-yellow-400">
-                  {course.price}
-                </p>
-              </div>
-            </div>
+              {/* CONTENT OVERLAY */}
+              <div className="absolute inset-0 p-6 flex flex-col justify-between text-white">
+                {/* TOP: Category */}
+                <div>
+                  <p className="text-[11px] font-bold text-white/90 uppercase tracking-wider mb-3 inline-block bg-white/10 backdrop-blur-sm px-3 py-1.5 rounded-full">
+                    {course.category}
+                  </p>
+                </div>
 
-            {/* HOVER EFFECT BORDER */}
-            <div className="absolute inset-0 border-4 border-transparent group-hover:border-red-500 rounded-3xl transition-all duration-300 pointer-events-none" />
-          </div>
-        ))}
-      </div>
+                {/* BOTTOM: Title, Price, Lessons */}
+                <div>
+                  <h3 className="text-xl font-bold text-white mb-6 leading-snug line-clamp-2 drop-shadow-lg">
+                    {course.title}
+                  </h3>
+                  
+                  {/* PRICE AND LESSONS */}
+                  <div className="flex items-end justify-between mb-4">
+                    <div>
+                      <p className="text-3xl font-bold text-white drop-shadow-lg">$ {course.price}</p>
+                      <p className="text-xs text-white/80 mt-1">USD</p>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-3xl font-bold text-white leading-none drop-shadow-lg">{course.lessons}</p>
+                      <p className="text-xs text-white/80 mt-1">Lessons</p>
+                    </div>
+                  </div>
+
+                  {/* BUTTON - Hidden by default, shown on hover */}
+                  <motion.button 
+                    initial={{ opacity: 0, y: 10 }}
+                    whileHover={{ scale: 1.02 }}
+                    className="w-full flex items-center justify-between py-4 px-5 text-sm font-semibold bg-white text-black rounded-lg transition-all duration-300 shadow-xl opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0"
+                  >
+                    <span>Course details</span>
+                    <ArrowUpRight size={18} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </motion.button>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </AnimatePresence>
 
       {/* EMPTY STATE */}
       {filteredCourses.length === 0 && (
-        <div className="text-center py-20">
-          <p className="text-2xl font-bold text-gray-400">No courses found in this category</p>
-        </div>
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="text-center py-20"
+        >
+          <p className="text-xl text-gray-400">No courses found in this category</p>
+        </motion.div>
       )}
 
-      <style jsx>{`
-        @keyframes fade-in {
-          from {
-            opacity: 0;
-          }
-          to {
-            opacity: 1;
-          }
-        }
-
-        @keyframes fade-in-up {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        @keyframes slide-in {
-          from {
-            transform: scaleX(0);
-          }
-          to {
-            transform: scaleX(1);
-          }
-        }
-
-        .animate-fade-in {
-          animation: fade-in 0.6s ease-out;
-        }
-
-        .animate-fade-in-up {
-          animation: fade-in-up 0.6s ease-out;
-        }
-
-        .animate-slide-in {
-          animation: slide-in 0.3s ease-out;
-        }
-      `}</style>
+      {/* SHOW MORE BUTTON */}
+      {activeTab === "All courses" && (
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="text-center mt-8"
+        >
+          <button className="text-sm font-semibold text-black hover:text-gray-600 transition-colors underline underline-offset-4">
+            Expand your knowledge — Show more
+          </button>
+        </motion.div>
+      )}
     </div>
   );
 }

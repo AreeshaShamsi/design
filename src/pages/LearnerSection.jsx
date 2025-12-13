@@ -1,17 +1,17 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Briefcase } from "lucide-react";
+import { Briefcase, Users, GraduationCap, Award, BookOpen, Target } from "lucide-react";
 
 const LearnerSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
 
   const items = [
-    "Seasoned teachers",
-    "Skilled mentors",
-    "Expert educators",
-    "Industry experts",
-    "Experienced educators",
-    "Knowledge leaders",
+    { text: "Seasoned teachers", icon: GraduationCap },
+    { text: "Skilled mentors", icon: Users },
+    { text: "Expert educators", icon: BookOpen },
+    { text: "Industry experts", icon: Briefcase },
+    { text: "Experienced educators", icon: Award },
+    { text: "Knowledge leaders", icon: Target },
   ];
 
   useEffect(() => {
@@ -50,8 +50,8 @@ const LearnerSection = () => {
               : 'opacity-0 -translate-x-12'
           }`}
         >
-          <h2 className="text-5xl font-bold leading-tight text-black mb-6">
-            Join over 18,000<br />learners on their path<br />to success!
+          <h2 className="text-4xl font-bold leading-tight text-black mb-6">
+            Join a growing community of <br />18,000+ learners!
           </h2>
 
           <p className="text-gray-700 leading-relaxed mb-4">
@@ -66,24 +66,27 @@ const LearnerSection = () => {
 
           {/* GRID ICON LIST */}
           <div className="grid grid-cols-2 gap-y-4 gap-x-8">
-            {items.map((text, index) => (
-              <div 
-                key={index} 
-                className={`flex items-center gap-3 transition-all duration-700 ease-out ${
-                  isVisible 
-                    ? 'opacity-100 translate-y-0' 
-                    : 'opacity-0 translate-y-4'
-                }`}
-                style={{ 
-                  transitionDelay: isVisible ? `${index * 100 + 300}ms` : '0ms' 
-                }}
-              >
-                <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow">
-                  <Briefcase size={18} className="text-gray-700" />
+            {items.map((item, index) => {
+              const IconComponent = item.icon;
+              return (
+                <div 
+                  key={index} 
+                  className={`flex items-center gap-3 transition-all duration-700 ease-out ${
+                    isVisible 
+                      ? 'opacity-100 translate-y-0' 
+                      : 'opacity-0 translate-y-4'
+                  }`}
+                  style={{ 
+                    transitionDelay: isVisible ? `${index * 100 + 300}ms` : '0ms' 
+                  }}
+                >
+                  <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow">
+                    <IconComponent size={18} className="text-gray-700" />
+                  </div>
+                  <span className="text-gray-900 font-medium">{item.text}</span>
                 </div>
-                <span className="text-gray-900 font-medium">{text}</span>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 

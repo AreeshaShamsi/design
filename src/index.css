@@ -23,6 +23,7 @@
 
 
 .btn {
+  font-family: 'Poppins', sans-serif !important;
   display: flex;
   align-items: center;
   gap: 6px;
@@ -35,6 +36,7 @@
   background: transparent;
   cursor: pointer;
   transition: all 0.3s ease;
+
 }
 
 
@@ -86,11 +88,12 @@ p{
   }
 
 h2{
-   color: black;
-   font-weight: 700;
+  font-family: 'Poppins', sans-serif !important;
+  color: black;
+  font-weight: 700;
   letter-spacing: -0.025em;
-  line-height: 0.9;
-  font-size: 70px;
+  line-height: 1.0;
+  font-size: 60px;
 
 }
 

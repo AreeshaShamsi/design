@@ -98,9 +98,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-8">
           {/* Brand section */}
           <div className="lg:col-span-1">
-            <h2 className="text-2xl font-bold text-white mb-3">Vistario</h2>
-            <p className="text-sm text-gray-500 leading-relaxed">
-              Vistario empowers learners with flexible courses, expert guidance, and affordable education for lifelong growth
+           <span className="text-3xl font-bold tracking-tight">
+                <span className="text-blue-500">Skill</span>
+                <span className="text-orange-500">Spardha</span>
+              </span>
+
+            <p className="text-sm text-gray-500 leading-relaxed mt-2">
+              SkillSpardha empowers learners with flexible courses, expert guidance, and affordable education for lifelong growth
             </p>
           </div>
 
@@ -118,10 +122,10 @@ export default function Footer() {
           <div>
             <h3 className="text-white font-semibold mb-3 text-sm">Popular courses</h3>
             <ul className="space-y-2">
-              <li><a href="#" className="text-sm hover:text-white transition-colors">Business negotiation</a></li>
-              <li><a href="#" className="text-sm hover:text-white transition-colors">Content and language</a></li>
-              <li><a href="#" className="text-sm hover:text-white transition-colors">Web design and creative</a></li>
               <li><a href="#" className="text-sm hover:text-white transition-colors">Web development</a></li>
+              <li><a href="#" className="text-sm hover:text-white transition-colors">UI/UX design</a></li>
+              <li><a href="#" className="text-sm hover:text-white transition-colors">Mobile development</a></li>
+              <li><a href="#" className="text-sm hover:text-white transition-colors">Data Science</a></li>
             </ul>
           </div>
 
@@ -154,10 +158,10 @@ export default function Footer() {
         {/* Bottom section */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
           <p className="text-gray-500">
-            Designed by Radiant Templates. Powered by Webflow
+             © SkillSpardha 2025
           </p>
           <div className="flex items-center gap-6">
-            <a href="#" className="hover:text-white transition-colors">Style guide</a>
+           
             <a href="#" className="hover:text-white transition-colors">License</a>
             <a href="#" className="hover:text-white transition-colors">Changelog</a>
           </div>

@@ -51,7 +51,7 @@ const LearnerSection = () => {
           }`}
         >
           <h2 className="text-4xl font-bold leading-tight text-black mb-6">
-            Join a growing community of <br />18,000+ learners!
+            Join a growing community of <br /><span className="text-orange-400">18,000+ learners!</span>
           </h2>
 
           <p className="text-gray-700 leading-relaxed mb-4">
@@ -80,8 +80,8 @@ const LearnerSection = () => {
                     transitionDelay: isVisible ? `${index * 100 + 300}ms` : '0ms' 
                   }}
                 >
-                  <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow">
-                    <IconComponent size={18} className="text-gray-700" />
+                  <div className="w-8 h-8 rounded-full bg-blue-500 text-white flex items-center justify-center shadow">
+                    <IconComponent size={18} className="" />
                   </div>
                   <span className="text-gray-900 font-medium">{item.text}</span>
                 </div>

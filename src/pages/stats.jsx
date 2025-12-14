@@ -174,7 +174,7 @@ export default function CombinedSections() {
                   }}
                   whileTap={{ scale: 0.95 }}
                   transition={{ duration: 0.2 }}
-                  className="inline-flex items-center justify-center gap-1 px-6 py-2 text-xs font-medium uppercase tracking-wide bg-white text-black border border-black  cursor-pointer w-fit hover:text-white"
+                  className="inline-flex items-center justify-center gap-1 px-6 py-2 text-xs font-medium uppercase tracking-wide bg-blue-700 text-white border-black  cursor-pointer w-fit hover:text-white"
                 >
                   Explore
                   <ArrowRight

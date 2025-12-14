@@ -1,128 +1,128 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export default function CoursesSection() {
   const [activeTab, setActiveTab] = useState("All courses");
 
   const tabs = [
     "All courses",
-    "Business",
-    "Finance",
-    "Development",
-    "Language",
-    "Management",
-    "Web design"
+    "AI",
+    "Web Development",
+    "ML",
+    "Designing",
+    "Data Analytics"
   ];
 
   const allCourses = [
     {
       id: 1,
-      category: "Finance",
-      title: "Optimize workflow for peak productivity",
+      category: "AI",
+      title: "Master Artificial Intelligence and Machine Learning",
       lessons: 60,
-      price: "175.00",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
-      tag: "Finance"
+      price: "199.00",
+      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
+      tag: "AI"
     },
     {
       id: 2,
-      category: "Management",
-      title: "Operations strategy & performance improvement",
-      lessons: 35,
-      price: "130.00",
-      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80",
-      tag: "Management"
+      category: "Web Development",
+      title: "Full Stack Web Development Bootcamp",
+      lessons: 45,
+      price: "149.00",
+      image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=80",
+      tag: "Web Development"
     },
     {
       id: 3,
-      category: "Design",
-      title: "Modern UI components and frameworks",
-      lessons: 35,
+      category: "ML",
+      title: "Deep Learning and Neural Networks",
+      lessons: 55,
       price: "189.00",
-      image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&q=80",
-      tag: "Web design"
+      image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&q=80",
+      tag: "ML"
     },
     {
       id: 4,
-      category: "Management",
-      title: "Empower success through effective management",
-      lessons: 39,
-      price: "110.00",
-      image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80",
-      tag: "Management"
+      category: "Designing",
+      title: "UI/UX Design Masterclass",
+      lessons: 40,
+      price: "129.00",
+      image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80",
+      tag: "Designing"
     },
     {
       id: 5,
-      category: "Design",
-      title: "Enhance UI, UX, and professional design skills",
-      lessons: 30,
-      price: "180.00",
-      image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80",
-      tag: "Web design"
+      category: "Data Analytics",
+      title: "Data Science and Analytics Fundamentals",
+      lessons: 50,
+      price: "159.00",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+      tag: "Data Analytics"
     },
     {
       id: 6,
-      category: "Design",
-      title: "Unleash creativity with modern design tools",
-      lessons: 42,
-      price: "190.00",
-      image: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=800&q=80",
-      tag: "Web design"
+      category: "AI",
+      title: "Natural Language Processing with Python",
+      lessons: 38,
+      price: "179.00",
+      image: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=800&q=80",
+      tag: "AI"
     },
     {
       id: 7,
-      category: "Finance",
-      title: "Unlock wealth strategies through finance education",
-      lessons: 34,
-      price: "97.00",
-      image: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=800&q=80",
-      tag: "Finance"
+      category: "Web Development",
+      title: "Modern React and Next.js Development",
+      lessons: 42,
+      price: "139.00",
+      image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&q=80",
+      tag: "Web Development"
     },
     {
       id: 8,
-      category: "Language",
-      title: "Professional writing and communication mastery",
-      lessons: 32,
-      price: "160.00",
-      image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&q=80",
-      tag: "Language"
+      category: "ML",
+      title: "Computer Vision and Image Recognition",
+      lessons: 48,
+      price: "194.00",
+      image: "https://images.unsplash.com/photo-1535378917042-10a22c95931a?w=800&q=80",
+      tag: "ML"
     },
     {
       id: 9,
-      category: "Negotiation",
-      title: "Advanced deal strategies and communication",
-      lessons: 30,
-      price: "170.00",
-      image: "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=800&q=80",
-      tag: "Business"
+      category: "Designing",
+      title: "Graphic Design and Branding Essentials",
+      lessons: 35,
+      price: "119.00",
+      image: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=800&q=80",
+      tag: "Designing"
     },
     {
       id: 10,
-      category: "Development",
-      title: "Comprehensive web development with MERN",
-      lessons: 36,
-      price: "100.00",
-      image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=80",
-      tag: "Development"
+      category: "Data Analytics",
+      title: "Advanced SQL and Database Management",
+      lessons: 44,
+      price: "144.00",
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
+      tag: "Data Analytics"
     },
     {
       id: 11,
-      category: "Development",
-      title: "Building single page applications with angular",
-      lessons: 25,
-      price: "140.00",
-      image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&q=80",
-      tag: "Development"
+      category: "Web Development",
+      title: "Backend Development with Node.js",
+      lessons: 40,
+      price: "134.00",
+      image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&q=80",
+      tag: "Web Development"
     },
     {
       id: 12,
-      category: "Language",
-      title: "Content creation and language proficiency",
-      lessons: 29,
-      price: "110.00",
-      image: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=800&q=80",
-      tag: "Language"
+      category: "Designing",
+      title: "Figma and Prototyping for Designers",
+      lessons: 32,
+      price: "109.00",
+      image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800&q=80",
+      tag: "Designing"
     }
   ];
 
@@ -145,7 +145,7 @@ export default function CoursesSection() {
           FIND THE COURSE RIGHT FOR YOUR GOAL
         </p>
         <h2 className="text-4xl md:text-5xl font-bold text-black leading-tight">
-          Select the program tailored to your success
+          Select the program tailored to your <span className="text-orange-500">success!</span>
         </h2>
       </motion.div>
 
@@ -161,9 +161,9 @@ export default function CoursesSection() {
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
-            className={`text-sm font-medium relative transition-colors pb-1 ${
+            className={`text-sm font-bold relative transition-colors pb-1 ${
               activeTab === tab
-                ? "text-black"
+                ? "text-orange-400"
                 : "text-gray-400 hover:text-gray-600"
             }`}
           >
@@ -171,7 +171,7 @@ export default function CoursesSection() {
             {activeTab === tab && (
               <motion.div
                 layoutId="activeTab"
-                className="absolute -bottom-2 left-0 right-0 h-[2px] bg-black"
+                className="absolute -bottom-2 left-0 right-0 h-[2px] bg-orange-500"
                 transition={{ type: "spring", stiffness: 380, damping: 30 }}
               />
             )}
@@ -227,24 +227,36 @@ export default function CoursesSection() {
                   {/* PRICE AND LESSONS */}
                   <div className="flex items-end justify-between mb-4">
                     <div>
-                      <p className="text-3xl font-bold text-white drop-shadow-lg">$ {course.price}</p>
-                      <p className="text-xs text-white/80 mt-1">USD</p>
+                      <p className="text-3xl font-bold text-orange-400 leading-none drop-shadow-lg">$ {course.price}</p>
+                      <p className="text-xs text-orange-400 mt-1">USD</p>
                     </div>
-                    <div className="text-right">
+                    {/* <div className="text-right">
                       <p className="text-3xl font-bold text-white leading-none drop-shadow-lg">{course.lessons}</p>
                       <p className="text-xs text-white/80 mt-1">Lessons</p>
-                    </div>
+                    </div> */}
                   </div>
 
                   {/* BUTTON - Hidden by default, shown on hover */}
-                  <motion.button 
-                    initial={{ opacity: 0, y: 10 }}
-                    whileHover={{ scale: 1.02 }}
-                    className="w-full flex items-center justify-between py-4 px-5 text-sm font-semibold bg-white text-black rounded-lg transition-all duration-300 shadow-xl opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0"
-                  >
+                 <button
+  className="
+   inline-flex items-center justify-center
+    gap-1 px-6 py-2 text-xs font-medium uppercase tracking-wide
+    bg-orange-500 text-white
+    border border-black 
+    shadow-xl
+    transition-all duration-500
+    opacity-0 translate-y-4
+    group-hover:opacity-100 group-hover:translate-y-0
+    hover:bg-orange-400 hover:text-white
+    cursor-pointer
+  "
+>
+  
+
+
                     <span>Course details</span>
-                    <ArrowUpRight size={18} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                  </motion.button>
+                    <ArrowUpRight size={18} className="transition-transform" />
+                  </button>
                 </div>
               </div>
             </motion.div>
@@ -272,9 +284,21 @@ export default function CoursesSection() {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="text-center mt-8"
         >
-          <button className="text-sm font-semibold text-black hover:text-gray-600 transition-colors underline underline-offset-4">
-            Expand your knowledge — Show more
-          </button>
+         <motion.button
+                          whileHover={{ 
+                            scale: 1.05,
+                            backgroundColor: "#000"
+                          }}
+                          whileTap={{ scale: 0.95 }}
+                          transition={{ duration: 0.2 }}
+                          className="inline-flex items-center justify-center gap-1 px-6 py-2 text-xs font-medium uppercase tracking-wide bg-white text-black border border-black  cursor-pointer w-fit hover:text-white"
+                        >
+                          View All Courses
+                          <ArrowRight
+                              size={16}
+                              className="relative z-10 transition-all duration-500 group-hover:translate-x-1"
+                            />
+                        </motion.button>
         </motion.div>
       )}
     </div>

@@ -35,8 +35,8 @@ const PremiumNavbar = () => {
     <>
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-500 ease-out ${isScrolled
-            ? 'bg-black/60 backdrop-blur-2xl border-b border-white/5 shadow-[0_8px_32px_rgba(255,255,255,0.05)]'
-            : 'bg-transparent'
+          ? 'bg-black/60 backdrop-blur-2xl border-b border-white/5 shadow-[0_8px_32px_rgba(255,255,255,0.05)]'
+          : 'bg-transparent'
           } ${showNavbar ? 'translate-y-0' : '-translate-y-full'}`}
       >
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
@@ -46,9 +46,11 @@ const PremiumNavbar = () => {
                 <div className="absolute -inset-2 bg-white/20 rounded-xl opacity-0 group-hover:opacity-30 blur-xl transition-all duration-700"></div>
                 <img src={Logo} alt="Logo" className="w-auto h-10 rounded-full" />
               </div>
-              <span className="text-2xl font-bold bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent group-hover:from-white group-hover:to-white/90 transition-all duration-500 tracking-tight">
-                SkillSpardha
+              <span className="text-2xl font-bold tracking-tight">
+                <span className="text-blue-500">Skill</span>
+                <span className="text-orange-500">Spardha</span>
               </span>
+
             </div>
 
             <div className="hidden lg:flex items-center space-x-1">
@@ -75,10 +77,10 @@ const PremiumNavbar = () => {
 
                   <span
                     className={`relative z-10 transition-all duration-300 ${activeItem === item
+                      ? 'text-white'
+                      : hoveredItem === item
                         ? 'text-white'
-                        : hoveredItem === item
-                          ? 'text-white'
-                          : 'text-white/60'
+                        : 'text-white/60'
                       }`}
                   >
                     {item}
@@ -120,8 +122,8 @@ const PremiumNavbar = () => {
 
         <div
           className={`lg:hidden transition-all duration-500 ease-out ${isMobileMenuOpen
-              ? 'max-h-[600px] opacity-100'
-              : 'max-h-0 opacity-0 overflow-hidden'
+            ? 'max-h-[600px] opacity-100'
+            : 'max-h-0 opacity-0 overflow-hidden'
             }`}
         >
           <div className="px-6 py-8 bg-black/90 backdrop-blur-2xl border-t border-white/5">
@@ -134,8 +136,8 @@ const PremiumNavbar = () => {
                     setIsMobileMenuOpen(false);
                   }}
                   className={`w-full px-5 py-4 text-left text-[15px] font-medium rounded-xl transition-all duration-300 ${activeItem === item
-                      ? 'text-white bg-white/5 border border-white/10'
-                      : 'text-white/60 hover:text-white hover:bg-white/5'
+                    ? 'text-white bg-white/5 border border-white/10'
+                    : 'text-white/60 hover:text-white hover:bg-white/5'
                     }`}
                 >
                   {item}

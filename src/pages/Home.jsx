@@ -7,6 +7,8 @@ import About from "./stats.jsx";
 import LearnerSection from "./LearnerSection.jsx";
 import CoursesSection from "./Courses.jsx";
 import Learning from "./Learning.jsx";
+import Footer from "../components/Footer.jsx";
+import PlacementSection from "./PlacementSection.jsx";
 
 const Home = () => {
   const fadeUp = {
@@ -81,7 +83,7 @@ const Home = () => {
                   className=" md:text-5xl sm:text-3xl  leading-none tracking-tight"
                 >
                   Making Learning <br />
-                  <span className="text-transparent bg-clip-text bg-yellow-600">Limitless</span>
+                  <span className="text-transparent bg-clip-text bg-orange-400">Limitless</span>
                 </motion.h1>
 
                 <motion.p
@@ -136,6 +138,8 @@ const Home = () => {
         <About />
         <CoursesSection />
         <Learning />
+        <PlacementSection/>
+        <Footer/>
       </div>
     </>
   );

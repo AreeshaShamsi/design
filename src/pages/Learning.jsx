@@ -52,11 +52,7 @@ export default function LearningJourneySection() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="text-white"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-full mb-6 backdrop-blur-sm">
-              <span className="text-sm text-gray-300">
-                Join 18,000+ learners worldwide
-              </span>
-            </div>
+           
 
             <motion.h1
               initial={{ opacity: 0, y: 20 }}

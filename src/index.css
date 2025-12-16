@@ -2,40 +2,31 @@
 
 @import "tailwindcss";
 
-@font-face {
-  font-family: 'D-DIN';
-  src: url('./fonts/DDIN.woff2') format('woff2'),
-       url('./fonts/DDIN.woff') format('woff');
-  font-weight: 400; /* regular weight */
-  font-style: normal;
-  font-display: swap;
+
+body {
+  font-family: 'Poppins', sans-serif;
 }
 
-@font-face {
-  font-family: 'D-DIN';
-  src: url('./fonts/DDIN-Bold.woff2') format('woff2'),
-       url('./fonts/DDIN-Bold.woff') format('woff');
-  font-weight: 700; /* bold weight */
-  font-style: normal;
-  font-display: swap;
-}
 
 
 
 .btn {
-  font-family: 'Poppins', sans-serif !important;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 8px 20px;
-  font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  border: 2px solid rgba(255, 255, 255, 0.25);
-  color: white;
- background-color: #1d4ed8;
-  cursor: pointer;
-  transition: all 0.3s ease;
+ font-family: 'Poppins', sans-serif !important;
+display: flex;
+align-items: center;
+gap: 6px;
+padding: 8px 20px;
+font-size: 14px;
+text-transform: uppercase;
+letter-spacing: 0.08em;
+
+border: 2px solid rgba(255, 255, 255, 0.25);
+color: white;
+
+background-color: transparent; /* this is the key */
+
+cursor: pointer;
+transition: all 0.3s ease;
 
 }
 

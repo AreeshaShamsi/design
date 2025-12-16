@@ -1,16 +1,48 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import Logo from '../assets/logo.jpg';
 
 const PremiumNavbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeItem, setActiveItem] = useState('Product');
+  const [activeItem, setActiveItem] = useState('About');
   const [hoveredItem, setHoveredItem] = useState(null);
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  const navItems = [, 'About', 'Courses', 'Hackathons', 'Contact'];
+  useEffect(() => {
+    const path = location.pathname;
+    if (path === '/about') setActiveItem('About');
+    else if (path === '/courses') setActiveItem('Courses');
+    else if (path === '/hackathons') setActiveItem('Hackathons');
+    else if (path === '/contact') setActiveItem('Contact');
+    else setActiveItem(''); // or default
+  }, [location]);
+
+  const handleNavClick = (item) => {
+    setIsMobileMenuOpen(false);
+    switch (item) {
+      case 'About':
+        navigate('/about');
+        break;
+      case 'Courses':
+        navigate('/courses');
+        break;
+      case 'Hackathons':
+        navigate('/hackathons');
+        break;
+      case 'Contact':
+        navigate('/contact');
+        break;
+      default:
+        break;
+    }
+  };
+
+  const navItems = ['About', 'Courses', 'Hackathons', 'Contact'];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,6 +63,15 @@ const PremiumNavbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollY]);
 
+  useEffect(() => {
+    const path = location.pathname;
+    if (path === '/about') setActiveItem('About');
+    else if (path === '/courses') setActiveItem('Courses');
+    else if (path === '/hackathons') setActiveItem('Hackathons');
+    else if (path === '/contact') setActiveItem('Contact');
+    else setActiveItem(''); // or default
+  }, [location]);
+
   return (
     <>
       <nav
@@ -41,7 +82,7 @@ const PremiumNavbar = () => {
       >
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           <div className="flex items-center justify-between h-20">
-            <div className="flex items-center space-x-3 group cursor-pointer">
+            <div className="flex items-center space-x-3 group cursor-pointer" onClick={() => navigate('/')}>
               <div className="relative">
                 <div className="absolute -inset-2 bg-white/20 rounded-xl opacity-0 group-hover:opacity-30 blur-xl transition-all duration-700"></div>
                 <img src={Logo} alt="Logo" className="w-auto h-10 rounded-full" />
@@ -57,7 +98,7 @@ const PremiumNavbar = () => {
               {navItems.map((item) => (
                 <button
                   key={item}
-                  onClick={() => setActiveItem(item)}
+                  onClick={() => handleNavClick(item)}
                   onMouseEnter={() => setHoveredItem(item)}
                   onMouseLeave={() => setHoveredItem(null)}
                   className="relative px-5 py-2.5 text-[15px] font-medium transition-all duration-300 group"
@@ -131,10 +172,7 @@ const PremiumNavbar = () => {
               {navItems.map((item) => (
                 <button
                   key={item}
-                  onClick={() => {
-                    setActiveItem(item);
-                    setIsMobileMenuOpen(false);
-                  }}
+                  onClick={() => handleNavClick(item)}
                   className={`w-full px-5 py-4 text-left text-[15px] font-medium rounded-xl transition-all duration-300 ${activeItem === item
                     ? 'text-white bg-white/5 border border-white/10'
                     : 'text-white/60 hover:text-white hover:bg-white/5'

@@ -287,11 +287,11 @@ export default function CoursesSection() {
          <motion.button
                           whileHover={{ 
                             scale: 1.05,
-                            backgroundColor: "#000"
+                            backgroundColor: "#e5e5e5"
                           }}
                           whileTap={{ scale: 0.95 }}
                           transition={{ duration: 0.2 }}
-                          className="inline-flex items-center justify-center gap-1 px-6 py-2 text-xs font-medium uppercase tracking-wide bg-white text-black border border-black  cursor-pointer w-fit hover:text-white"
+                          className="inline-flex items-center justify-center gap-1 px-6 py-2 text-sm font-medium uppercase tracking-wide bg-white text-black border border-black  cursor-pointer w-fit hover:text-black"
                         >
                           View All Courses
                           <ArrowRight

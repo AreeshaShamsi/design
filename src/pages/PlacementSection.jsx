@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
 
 export default function TestimonialsSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -53,7 +52,7 @@ export default function TestimonialsSection() {
 
   const TestimonialCard = ({ testimonial }) => {
     return (
-      <div className="flex-shrink-0 w-full max-w-[380px] bg-white rounded-[20px] p-10 shadow-[0_2px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_4px_30px_rgba(0,0,0,0.1)] transition-all duration-500">
+      <div className="flex-shrink-0 w-full sm:w-[calc(100%-48px)] md:w-[380px] bg-white rounded-[20px] p-8 sm:p-10 shadow-[0_2px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_4px_30px_rgba(0,0,0,0.1)] transition-all duration-500 mx-auto sm:mx-0">
         {/* Quote Icon */}
         <div className="text-[#e0e0e0] text-[64px] leading-[0.8] font-serif mb-6 select-none">"</div>
 
@@ -87,48 +86,76 @@ export default function TestimonialsSection() {
     );
   };
 
+  // Calculate card width + gap based on screen size
+  const getCardWidth = () => {
+    if (typeof window !== 'undefined') {
+      const width = window.innerWidth;
+      if (width < 640) return width; // Full width on mobile
+      if (width < 768) return width - 48; // Account for padding on small screens
+      return 404; // 380px card + 24px gap
+    }
+    return 404;
+  };
+
+  const [cardWidth, setCardWidth] = useState(getCardWidth());
+
+  useEffect(() => {
+    const handleResize = () => {
+      setCardWidth(getCardWidth());
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
-    <div className="bg-[#f5f5f5] py-24 px-6 overflow-hidden">
+    <div className="bg-[#f5f5f5] py-16 sm:py-24 px-4 sm:px-6 overflow-hidden">
       <div className="max-w-[1400px] mx-auto">
         {/* HEADING */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-20"
-        >
+        <div className="text-center mb-12 sm:mb-20">
           <p className="text-[#888] uppercase tracking-[0.2em] text-[10px] font-bold mb-4">
             REVIEWS FROM GLOBAL LEARNERS
           </p>
-          <h2 className="text-[42px] md:text-[48px] font-bold text-[#1a1a1a] leading-[1.2]">
+          <h2 className="text-[32px] sm:text-[42px] md:text-[48px] font-bold text-[#1a1a1a] leading-[1.2] px-4">
             What our clients say about us
           </h2>
-        </motion.div>
+        </div>
 
         {/* CAROUSEL CONTAINER */}
         <div className="relative max-w-[1200px] mx-auto">
-          {/* Fade overlays on sides */}
-          <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#f5f5f5] to-transparent z-10 pointer-events-none"></div>
-          <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#f5f5f5] to-transparent z-10 pointer-events-none"></div>
+          {/* Fade overlays on sides - hidden on small screens */}
+          <div className="hidden sm:block absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#f5f5f5] to-transparent z-10 pointer-events-none"></div>
+          <div className="hidden sm:block absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#f5f5f5] to-transparent z-10 pointer-events-none"></div>
 
           {/* Carousel Track */}
-          <div className="overflow-hidden">
-            <motion.div 
-              className="flex gap-6"
-              animate={{
-                x: `calc(-${(currentIndex * 404)}px)`
-              }}
-              transition={{
-                duration: 0.8,
-                ease: "easeInOut"
+          <div className="overflow-hidden px-0 sm:px-0">
+            <div 
+              className="flex gap-4 sm:gap-6 transition-transform duration-800 ease-in-out"
+              style={{
+                transform: `translateX(-${currentIndex * cardWidth}px)`
               }}
             >
               {/* Render testimonials in a loop for infinite effect */}
               {testimonials.concat(testimonials).concat(testimonials).map((testimonial, index) => (
                 <TestimonialCard key={`${testimonial.id}-${index}`} testimonial={testimonial} />
               ))}
-            </motion.div>
+            </div>
+          </div>
+
+          {/* Dots indicator for mobile */}
+          <div className="flex sm:hidden justify-center gap-2 mt-8">
+            {testimonials.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  currentIndex % testimonials.length === index 
+                    ? 'bg-orange-400 w-6' 
+                    : 'bg-gray-300'
+                }`}
+                aria-label={`Go to testimonial ${index + 1}`}
+              />
+            ))}
           </div>
         </div>
       </div>

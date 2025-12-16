@@ -1,18 +1,53 @@
-import React, { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import React, { useRef, useState, useEffect } from "react";
 import { ArrowRight } from "lucide-react";
 
 export default function LearningJourneySection() {
   const sectionRef = useRef(null);
+  const [scrollY, setScrollY] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
 
-  // Scroll-based parallax for background
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"],
-  });
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!sectionRef.current) return;
+      
+      const rect = sectionRef.current.getBoundingClientRect();
+      const sectionTop = rect.top + window.scrollY;
+      const windowHeight = window.innerHeight;
+      
+      setScrollY(window.scrollY);
+      
+      // Check if section is in viewport
+      const isInView = rect.top < windowHeight * 0.8 && rect.bottom > 0;
+      if (isInView && !isVisible) {
+        setIsVisible(true);
+      }
+    };
 
-  const y = useTransform(scrollYProgress, [0, 1], [0, -120]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0.3]);
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial check
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isVisible]);
+
+  // Calculate parallax only when section is near viewport
+  const calculateParallax = () => {
+    if (!sectionRef.current) return { y: 0, opacity: 1 };
+    
+    const rect = sectionRef.current.getBoundingClientRect();
+    const sectionTop = rect.top + window.scrollY;
+    const relativeScroll = scrollY - sectionTop + window.innerHeight;
+    
+    // Only apply parallax when section is in view
+    if (rect.top > window.innerHeight || rect.bottom < 0) {
+      return { y: 0, opacity: 1 };
+    }
+    
+    const y = Math.max(-120, Math.min(0, (relativeScroll - window.innerHeight) * 0.15));
+    const opacity = Math.max(0.3, Math.min(1, 1 - (Math.abs(rect.top) / window.innerHeight) * 0.3));
+    
+    return { y, opacity };
+  };
+
+  const { y, opacity } = calculateParallax();
 
   return (
     <section
@@ -21,9 +56,12 @@ export default function LearningJourneySection() {
       className="relative w-full min-h-[420px] flex items-center overflow-hidden"
     >
       {/* Background image with parallax */}
-      <motion.div
-        style={{ y, opacity }}
-        className="absolute inset-0"
+      <div
+        className="absolute inset-0 transition-transform duration-100 ease-out"
+        style={{
+          transform: `translateY(${y}px)`,
+          opacity: opacity,
+        }}
       >
         <div
           className="w-full h-full"
@@ -31,11 +69,11 @@ export default function LearningJourneySection() {
             backgroundImage:
               "url('https://www.udacity.com/_next/image?url=%2Fimages%2Fexperiments%2Fab_plp_redesign_2025%2Fit-specialist-in-front-of-computer.png&w=1920&q=80')",
             backgroundSize: "cover",
-            backgroundPosition: "center",
+            backgroundPosition: "center center",
             backgroundRepeat: "no-repeat",
           }}
         />
-      </motion.div>
+      </div>
 
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
@@ -45,52 +83,46 @@ export default function LearningJourneySection() {
         <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-8">
 
           {/* Left content */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-white"
+          <div
+            className={`text-white transition-all duration-1000 ease-out ${
+              isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
+            }`}
           >
-           
-
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+            <h1
               className="text-2xl md:text-4xl lg:text-5xl font-extrabold leading-tight mb-4"
+              style={{
+                transitionDelay: isVisible ? '200ms' : '0ms'
+              }}
             >
               Start Your Learning Journey
               <span className="text-orange-400"> Today</span>
-            </motion.h1>
+            </h1>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+            <p
               className="max-w-xl text-sm md:text-base text-white/90 leading-relaxed mb-6"
+              style={{
+                transitionDelay: isVisible ? '400ms' : '0ms'
+              }}
             >
               Master real-world skills with practical, industry-ready learning.
-            </motion.p>
+            </p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.6 }}
+            <div
               className="flex gap-4"
+              style={{
+                transitionDelay: isVisible ? '600ms' : '0ms'
+              }}
             >
-              <button className="btn group">
-                Get Started
+              <button className="group relative overflow-hidden flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition-all hover:scale-105 hover:shadow-xl">
+                <span className="relative z-10">Get Started</span>
                 <ArrowRight
                   size={16}
-                  className="transition-transform duration-300 group-hover:translate-x-1"
+                  className="relative z-10 transition-transform duration-300 group-hover:translate-x-1"
                 />
+                <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-all duration-700 blur-xl"></div>
               </button>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
 
           {/* Right spacer */}
           <div className="hidden md:block" />

@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import Video from "../assets/video1.mp4";
 import Navbar from "../components/Navbar.jsx";
-import About from "./stats.jsx";
+import Stats from "./stats.jsx";
 import LearnerSection from "./LearnerSection.jsx";
 import CoursesSection from "./Courses.jsx";
 import Learning from "./Learning.jsx";
@@ -135,7 +135,7 @@ const Home = () => {
         </section>
         <LearnerSection />
 
-        <About />
+        <Stats/>
         <CoursesSection />
         <Learning />
         <PlacementSection/>

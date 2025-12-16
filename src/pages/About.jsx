@@ -18,6 +18,10 @@ export default function About() {
   const [isVisible, setIsVisible] = useState(false);
   const contentRef = useRef(null);
 
+   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const fadeUp = {
     hidden: { opacity: 0, y: 100 },
     visible: {

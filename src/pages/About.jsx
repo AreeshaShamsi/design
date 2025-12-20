@@ -129,8 +129,9 @@ export default function About() {
                     variants={fadeUp}
                     className=" md:text-5xl sm:text-3xl  leading-none tracking-tight"
                   >
-                    Making Learning <br />
-                    <span className="text-transparent bg-clip-text bg-orange-400">Limitless</span>
+
+Your dreams, <br />
+                    <span className="text-transparent bg-clip-text bg-orange-400">our mission</span>
                   </motion.h1>
 
                   <motion.p
@@ -200,7 +201,7 @@ export default function About() {
                   transitionDelay: isVisible ? '100ms' : '0ms'
                 }}
               >
-                Edupro's cutting-edge online learning platform empowers individuals and teams with vital skills, enhancing their confidence for professional success and personal growth.
+                SkillSpardha cutting-edge online learning platform empowers individuals and teams with vital skills, enhancing their confidence for professional success and personal growth.
               </p>
 
               {/* Features */}

@@ -104,7 +104,7 @@ export default function Footer() {
               </span>
 
             <p className="text-sm text-gray-500 leading-relaxed mt-2">
-              SkillSpardha empowers learners with flexible courses, expert guidance, and affordable education for lifelong growth
+             Grow today. Lead tomorrow. Inspire always.
             </p>
           </div>
 
@@ -160,11 +160,7 @@ export default function Footer() {
           <p className="text-gray-500">
              © SkillSpardha 2025
           </p>
-          <div className="flex items-center gap-6">
-           
-            <a href="#" className="hover:text-white transition-colors">License</a>
-            <a href="#" className="hover:text-white transition-colors">Changelog</a>
-          </div>
+          
         </div>
       </div>
     </footer>

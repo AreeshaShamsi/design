@@ -17,7 +17,7 @@ export default function CombinedSections() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-5xl md:text-6xl font-bold text-black mb-6 leading-tight"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-6 leading-tight"
           >
             Explore a wide range of<br />courses all in one place.
           </motion.h2>
@@ -26,7 +26,7 @@ export default function CombinedSections() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-base md:text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto"
+            className="text-sm md:text-base lg:text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto"
           >
             Embrace a realm of possibilities and take charge of your destiny by honing new skills that help you fulfill your ambitions.
           </motion.p>
@@ -102,8 +102,8 @@ export default function CombinedSections() {
                     />
                   </svg>
                 </motion.div>
-                <h2 className="text-5xl font-bold text-black mb-6">120+</h2>
-                <h3 className="text-2xl font-bold text-black mb-4">Hours videos</h3>
+                <h2 className="text-4xl md:text-5xl font-bold text-black mb-6">120+</h2>
+                <h3 className="text-xl md:text-2xl font-bold text-black mb-4">Hours videos</h3>
                 <p className="text-gray-600 leading-relaxed">
                   Engage with a wealth of expertly crafted courses, delivered by top-tier professionals from the industry.
                 </p>
@@ -162,7 +162,7 @@ export default function CombinedSections() {
                 />
               </div>
               <div className="p-10 flex flex-col justify-center flex-1">
-                <h3 className="text-3xl font-bold text-black mb-4">A Great Community</h3>
+                <h3 className="text-2xl md:text-3xl font-bold text-black mb-4">A Great Community</h3>
                 <p className="text-gray-600 leading-relaxed mb-8">
                   We cherish the support of our diverse global community, fostering an inclusive
                   environment where everyone feels valued.

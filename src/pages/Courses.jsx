@@ -2,15 +2,18 @@ import React from "react";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function CoursesSection() {
+
+    const MotionLink = motion(Link);
   const allCourses = [
     {
       id: 1,
       category: "AI",
       title: "Master Artificial Intelligence and Machine Learning",
       lessons: 60,
-      price: "199.00",
+      price: "5400",
       image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
       tag: "AI",
       badge: "Newly Added"
@@ -20,7 +23,7 @@ export default function CoursesSection() {
       category: "ML",
       title: "Deep Learning and Neural Networks",
       lessons: 55,
-      price: "189.00",
+      price: "5400",
       image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&q=80",
       tag: "ML"
     },
@@ -29,7 +32,7 @@ export default function CoursesSection() {
       category: "Data Analytics",
       title: "Data Science and Analytics Fundamentals",
       lessons: 50,
-      price: "159.00",
+      price: "5400",
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
       tag: "Data Analytics",
       badge: "Recommended"
@@ -39,7 +42,7 @@ export default function CoursesSection() {
       category: "AI",
       title: "Natural Language Processing with Python",
       lessons: 38,
-      price: "179.00",
+      price: "5400",
       image: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=800&q=80",
       tag: "AI"
     },
@@ -48,7 +51,7 @@ export default function CoursesSection() {
       category: "ML",
       title: "Computer Vision and Image Recognition",
       lessons: 48,
-      price: "194.00",
+      price: "5400",
       image: "https://images.unsplash.com/photo-1535378917042-10a22c95931a?w=800&q=80",
       tag: "ML",
       badge: "Newly Added"
@@ -58,7 +61,7 @@ export default function CoursesSection() {
       category: "Data Analytics",
       title: "Advanced SQL and Database Management",
       lessons: 44,
-      price: "144.00",
+      price: "5400",
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
       tag: "Data Analytics"
     }
@@ -131,8 +134,8 @@ export default function CoursesSection() {
                 {/* PRICE AND LESSONS */}
                 <div className="flex items-end justify-between mb-3">
                   <div>
-                    <p className="text-2xl sm:text-3xl font-bold text-orange-400 leading-none drop-shadow-lg">$ {course.price}</p>
-                    <p className="text-xs text-orange-400 mt-1">USD</p>
+                    <p className="text-2xl sm:text-3xl font-bold text-orange-400 leading-none drop-shadow-lg">₹ {course.price}</p>
+                    <p className="text-xs text-orange-400 mt-1">INR</p>
                   </div>
                 </div>
 
@@ -168,21 +171,22 @@ export default function CoursesSection() {
         transition={{ duration: 0.5, delay: 0.4 }}
         className="text-center mt-8"
       >
-        <motion.button
-          whileHover={{ 
-            scale: 1.05,
-            backgroundColor: "#e5e5e5"
-          }}
-          whileTap={{ scale: 0.95 }}
-          transition={{ duration: 0.2 }}
-          className="inline-flex items-center justify-center gap-1 px-6 py-2 text-sm font-medium uppercase tracking-wide bg-white text-black border border-black cursor-pointer w-fit hover:text-black"
-        >
-          View All Courses
-          <ArrowRight
-            size={16}
-            className="relative z-10 transition-all duration-500 group-hover:translate-x-1"
-          />
-        </motion.button>
+       <MotionLink
+         to="/courses"
+         whileHover={{ 
+           scale: 1.05,
+           backgroundColor: "#e5e5e5"
+         }}
+         whileTap={{ scale: 0.95 }}
+         transition={{ duration: 0.2 }}
+         className="inline-flex items-center justify-center gap-1 px-6 py-2 text-sm font-medium uppercase tracking-wide bg-white text-black border-2 border-black cursor-pointer w-fit hover:text-black"
+       >
+         View All Courses
+         <ArrowRight
+           size={16}
+           className="transition-all duration-300 group-hover:translate-x-1"
+         />
+       </MotionLink>
       </motion.div>
     </div>
   );

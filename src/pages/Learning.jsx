@@ -1,10 +1,14 @@
 import React, { useRef, useState, useEffect } from "react";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import { motion } from 'framer-motion';
 
 export default function LearningJourneySection() {
   const sectionRef = useRef(null);
   const [scrollY, setScrollY] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
+
+   const MotionLink = motion(Link);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -113,14 +117,22 @@ export default function LearningJourneySection() {
                 transitionDelay: isVisible ? '600ms' : '0ms'
               }}
             >
-              <button className="group relative overflow-hidden flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition-all hover:scale-105 hover:shadow-xl">
-                <span className="relative z-10">Get Started</span>
-                <ArrowRight
-                  size={16}
-                  className="relative z-10 transition-transform duration-300 group-hover:translate-x-1"
-                />
-                <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-all duration-700 blur-xl"></div>
-              </button>
+              <MotionLink
+                      to="/courses"
+                      whileHover={{ 
+                        scale: 1.05,
+                        backgroundColor: "#e5e5e5"
+                      }}
+                      whileTap={{ scale: 0.95 }}
+                      transition={{ duration: 0.2 }}
+                      className="btn relative overflow-hidden group isolate flex items-center gap-2"
+                    >
+                      View All Courses
+                      <ArrowRight
+                        size={16}
+                        className="transition-all duration-300 group-hover:translate-x-1"
+                      />
+                    </MotionLink>
             </div>
           </div>
 

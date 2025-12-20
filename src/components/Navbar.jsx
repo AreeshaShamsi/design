@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import Logo from '../assets/logo.jpg';
+import Logo from '../assets/Logo.png';
 
 const PremiumNavbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -82,17 +82,22 @@ const PremiumNavbar = () => {
       >
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           <div className="flex items-center justify-between h-20">
-            <div className="flex items-center space-x-3 group cursor-pointer" onClick={() => navigate('/')}>
-              <div className="relative">
-                <div className="absolute -inset-2 bg-white/20 rounded-xl opacity-0 group-hover:opacity-30 blur-xl transition-all duration-700"></div>
-                <img src={Logo} alt="Logo" className="w-auto h-10 rounded-full" />
+             <div className="flex items-center space-x-3 group cursor-pointer" onClick={() => navigate('/')}>
+              <div className="relative flex-shrink-0 -mr-1">
+                <div className="absolute -inset-3 bg-transparent rounded-full opacity-0 group-hover:opacity-30 blur-xl transition-all duration-700"></div>
+                <img
+                  src={Logo}
+                  alt="Logo"
+                  className="h-18 w-auto rounded-full"
+                />
               </div>
-              <span className="text-2xl font-bold tracking-tight">
+
+              <span className="text-2xl font-bold tracking-tight leading-none">
                 <span className="text-blue-500">Skill</span>
                 <span className="text-orange-500">Spardha</span>
               </span>
-
             </div>
+
 
             <div className="hidden lg:flex items-center space-x-1">
               {navItems.map((item) => (

@@ -9,6 +9,7 @@ import CoursesSection from "./Courses.jsx";
 import Learning from "./Learning.jsx";
 import Footer from "../components/Footer.jsx";
 import PlacementSection from "./PlacementSection.jsx";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const fadeUp = {
@@ -22,6 +23,8 @@ const Home = () => {
       }
     }
   };
+
+  const navigate = useNavigate();
 
   const float = {
     animate: {
@@ -107,7 +110,8 @@ const Home = () => {
                   }}
                   className="btn relative overflow-hidden group isolate flex items-center gap-2"
                 >
-                  <span className="relative z-10">Explore</span>
+                  <span onClick={() => navigate("/courses")}
+                    className="relative z-10 cursor-pointer">Explore</span>
 
                   <motion.div
                     animate={{ x: [0, 4, 0] }}
@@ -135,11 +139,11 @@ const Home = () => {
         </section>
         <LearnerSection />
 
-        <Stats/>
+        <Stats />
         <CoursesSection />
         <Learning />
-        <PlacementSection/>
-        <Footer/>
+        <PlacementSection />
+        <Footer />
       </div>
     </>
   );

@@ -1,16 +1,46 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ArrowRight, ChevronRight, Search } from 'lucide-react';
+import { ArrowRight,Check, ChevronRight, Search } from 'lucide-react';
+import Courses from "./Courses";
+import Navbar from '../components/Navbar';
+import { motion } from "framer-motion";
+import Footer from '../components/Footer';
 
 export default function CoursePg() {
   const [scrollY, setScrollY] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const contentRef = useRef(null);
-  const [activeCategory, setActiveCategory] = useState('Programming & Development');
+  const [activeCategory, setActiveCategory] = useState('Programming ');
   const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+
+  
+  const fadeUp = {
+    hidden: { opacity: 0, y: 100 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 2.5,
+        ease: [0.06, 0.9, 0.12, 0.99]
+      }
+    }
+  };
+
+  const float = {
+    animate: {
+      y: [0, -15, 0],
+      transition: {
+        duration: 12,
+        repeat: Infinity,
+        ease: "easeInOut",
+        repeatType: "reverse"
+      }
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,7 +63,7 @@ export default function CoursePg() {
   const glowParallax = scrollY * 0.2;
 
   const courseCategories = {
-    'Programming & Development': [
+    'Programming ': [
       {
         duration: '6 WEEKS',
         level: 'BEGINNER LEVEL',
@@ -401,8 +431,12 @@ const filteredCourses = !searchQuery?.trim()
     });
 
 
+  
+
 
   return (
+    <>
+  <Navbar/>
     <div className="min-h-screen bg-gray-100">
       {/* Hero Section with Background Image */}
       <section className="relative min-h-screen flex items-end pb-20 overflow-hidden">
@@ -447,7 +481,7 @@ const filteredCourses = !searchQuery?.trim()
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               {/* Left content */}
-              <div className="space-y-6 text-white">
+                <div className="space-y-6 text-white">
                 <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
                   Grow your skills<br />
                   <span className="text-transparent bg-clip-text bg-linear-to-r from-orange-400 to-orange-600">
@@ -459,13 +493,13 @@ const filteredCourses = !searchQuery?.trim()
                   From fundamentals to advanced concepts, our courses are designed to help you build skills step by step
                 </p>
 
-                <button className="group bg-white text-gray-900 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-all flex items-center gap-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                <button className="btn relative overflow-hidden group isolate flex items-center gap-2">
                   <span>Explore</span>
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
-              </div>
             </div>
           </div>
+        </div>
         </div>
       </section>
 
@@ -474,16 +508,16 @@ const filteredCourses = !searchQuery?.trim()
         <div className="max-w-7xl mx-auto">
           {/* Section Header */}
           <div className="mb-8">
-            <p className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">ONLINE COURSES</p>
-            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900">
-              All online courses
+            <p className="text-[11px] font-semibold text-gray-400 uppercase tracking-wider text-center mb-2">ONLINE COURSES</p>
+            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 text-center">
+              Explore Our Online Courses
             </h2>
           </div>
 
           {/* Search Bar */}
           <div className="mb-8">
             <div className="relative max-w-2xl">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-center text-gray-400" />
               <input
                 type="text"
                 placeholder="Search courses by name, topic, or keyword..."
@@ -508,7 +542,7 @@ const filteredCourses = !searchQuery?.trim()
                     }}
                     className={`w-full text-left px-4 py-3 text-base font-medium transition-all ${
                       category === activeCategory
-                        ? 'text-gray-900 border-l-4 border-red-500 bg-gray-50'
+                        ? 'text-gray-900 border-l-4 border-orange-400 bg-gray-50'
                         : 'text-gray-600 hover:text-gray-900 border-l-4 border-transparent hover:border-gray-300'
                     }`}
                   >
@@ -560,19 +594,23 @@ const filteredCourses = !searchQuery?.trim()
                           <p className="text-gray-600 leading-relaxed mb-4">
                             {course.description}
                           </p>
-                          <p className="text-2xl font-bold text-red-600">
-                            {course.price} USD
-                          </p>
+                         <div className="flex items-center justify-between mt-6">
+  {/* Price */}
+  <div className="flex items-center gap-3">
+    <span className="text-sm text-gray-400 line-through">₹999</span>
+    <span className="text-3xl font-bold text-orange-400">₹5400</span>
+  </div>
+
+  {/* CTA */}
+  <button className="px-6 py-3 bg-gray-900 text-white rounded-xl font-medium hover:bg-gray-800 transition">
+    Course details →
+  </button>
+</div>
                         </div>
                       </div>
 
                       {/* Course Details Button */}
-                      <div className="flex items-start md:items-center">
-                        <button className="bg-gray-900 text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-800 transition-all flex items-center gap-2 group/btn">
-                          Course details
-                          <ChevronRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                        </button>
-                      </div>
+                      
                     </div>
                   ))}
                 </div>
@@ -581,6 +619,9 @@ const filteredCourses = !searchQuery?.trim()
           </div>
         </div>
       </section>
+      <Courses/>
     </div>
+    <Footer/>
+    </>
   );
 }
